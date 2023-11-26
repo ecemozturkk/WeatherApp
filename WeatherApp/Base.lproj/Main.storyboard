@@ -24,7 +24,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-lp-Tmk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02d" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-lp-Tmk">
                                 <rect key="frame" x="154" y="266" width="85" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="HXU-Jh-v81"/>
@@ -208,7 +208,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloudy" width="512" height="512"/>
+        <image name="02d" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="bgColor">
             <color red="0.82352941176470584" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
