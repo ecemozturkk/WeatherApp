@@ -268,9 +268,9 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <size key="customSize" width="197" height="250"/>
                                                                 <connections>
-                                                                    <outlet property="imgWeatherStatusPic" destination="r4c-we-1NO" id="duW-3i-Rv3"/>
-                                                                    <outlet property="lblTemprature" destination="tST-uE-KIp" id="ZKj-hz-xjk"/>
-                                                                    <outlet property="lblTime" destination="r2K-pq-8qH" id="TNV-PO-9J6"/>
+                                                                    <outlet property="imgWeatherStatusPic" destination="r4c-we-1NO" id="785-sj-z0B"/>
+                                                                    <outlet property="lblTemprature" destination="tST-uE-KIp" id="QfI-d1-JJT"/>
+                                                                    <outlet property="lblTime" destination="r2K-pq-8qH" id="Rct-1n-r3Q"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
