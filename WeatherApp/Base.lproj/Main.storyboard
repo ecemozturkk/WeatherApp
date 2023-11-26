@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O6s-TN-RB9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,6 +176,9 @@
                                                             <segment title="Today"/>
                                                             <segment title="Weekly"/>
                                                         </segments>
+                                                        <connections>
+                                                            <action selector="btnSegmentAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bew-eS-lIO"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-9x-WYk">
                                                         <rect key="frame" x="0.0" y="31" width="373" height="219"/>
@@ -187,7 +190,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherForecastCell" id="WEm-uB-Wxd" customClass="WeatherForecastCell" customModule="Weather" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherForecastCell" id="WEm-uB-Wxd" customClass="WeatherForecastCell" customModule="WeatherApp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="-15.666666666666666" width="197" height="250"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Xk-bU-lzx">
@@ -265,9 +268,9 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <size key="customSize" width="197" height="250"/>
                                                                 <connections>
-                                                                    <outlet property="imgWeatherStatusPic" destination="r4c-we-1NO" id="duW-3i-Rv3"/>
-                                                                    <outlet property="lblTemprature" destination="tST-uE-KIp" id="ZKj-hz-xjk"/>
-                                                                    <outlet property="lblTime" destination="r2K-pq-8qH" id="TNV-PO-9J6"/>
+                                                                    <outlet property="imgWeatherStatusPic" destination="r4c-we-1NO" id="785-sj-z0B"/>
+                                                                    <outlet property="lblTemprature" destination="tST-uE-KIp" id="QfI-d1-JJT"/>
+                                                                    <outlet property="lblTime" destination="r2K-pq-8qH" id="Rct-1n-r3Q"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
@@ -298,6 +301,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pcC-R2-LPc"/>
+                    <connections>
+                        <outlet property="btnForecastSegment" destination="fGt-VY-2ph" id="wO2-3z-enB"/>
+                        <outlet property="imgWeatherStatusPic" destination="9pL-lp-Tmk" id="Dr2-eD-Qmz"/>
+                        <outlet property="lblCity" destination="tnq-3k-Pkz" id="lyw-i3-9bP"/>
+                        <outlet property="lblDate" destination="txl-YO-gwL" id="Qbz-7c-OYR"/>
+                        <outlet property="lblUsername" destination="0ll-e2-2qX" id="8CH-iB-bAZ"/>
+                        <outlet property="lblWeatherDescription" destination="mTS-Hh-HWn" id="6pu-WW-52d"/>
+                        <outlet property="profileImage" destination="X9u-Jo-xys" id="HNI-y1-zYI"/>
+                        <outlet property="weatherCollectionViewList" destination="XhS-9x-WYk" id="juS-RD-PYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
