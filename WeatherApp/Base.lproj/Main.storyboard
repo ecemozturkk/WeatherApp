@@ -176,6 +176,9 @@
                                                             <segment title="Today"/>
                                                             <segment title="Weekly"/>
                                                         </segments>
+                                                        <connections>
+                                                            <action selector="btnSegmentAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bew-eS-lIO"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-9x-WYk">
                                                         <rect key="frame" x="0.0" y="31" width="373" height="219"/>
@@ -298,6 +301,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pcC-R2-LPc"/>
+                    <connections>
+                        <outlet property="btnForecastSegment" destination="fGt-VY-2ph" id="wO2-3z-enB"/>
+                        <outlet property="imgWeatherStatusPic" destination="9pL-lp-Tmk" id="Dr2-eD-Qmz"/>
+                        <outlet property="lblCity" destination="tnq-3k-Pkz" id="lyw-i3-9bP"/>
+                        <outlet property="lblDate" destination="txl-YO-gwL" id="Qbz-7c-OYR"/>
+                        <outlet property="lblUsername" destination="0ll-e2-2qX" id="8CH-iB-bAZ"/>
+                        <outlet property="lblWeatherDescription" destination="mTS-Hh-HWn" id="6pu-WW-52d"/>
+                        <outlet property="profileImage" destination="X9u-Jo-xys" id="HNI-y1-zYI"/>
+                        <outlet property="weatherCollectionViewList" destination="XhS-9x-WYk" id="juS-RD-PYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
