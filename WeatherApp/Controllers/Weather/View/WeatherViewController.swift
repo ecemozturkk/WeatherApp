@@ -13,7 +13,6 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var lblDate: UILabel?
     @IBOutlet weak var lblCity: UILabel?
-    @IBOutlet weak var lblUsername: UILabel?
     @IBOutlet weak var profileImage: UIImageView?
     @IBOutlet weak var lblWeatherDescription: UILabel?
     @IBOutlet weak var imgWeatherStatusPic: UIImageView?
@@ -29,6 +28,9 @@ class WeatherViewController: UIViewController {
     var weekForecast: [WeekWeatherInfo] = []
     var todayForeCast: [WeekWeatherInfo] = []
     var currentWeatherData: WeatherData?
+    let cityManager = LocationManager.shared
+    
+    var tempBool = true
     
     //MARK: - Life Cycle Method(s)
     
@@ -54,15 +56,12 @@ extension WeatherViewController {
     
     func initViewModel() {
         
-        self.profileImage?.layer.cornerRadius = viewModel.cornerRadius
-        self.profileImage?.clipsToBounds = true
-        
-        self.lblUsername?.text = "Welcome User"
-        
         
         
         
         // Get employees data
+
+        // Get data
         viewModel.reloadWeatherList = { [weak self] arrData in
             DispatchQueue.main.async {
                 self?.updateForeCastList(arrForeCastData: arrData)
@@ -78,8 +77,16 @@ extension WeatherViewController {
             }
         }
         
-        viewModel.getWeatherForeCastData()
-        viewModel.getCityWeatherData()
+        cityManager.getCurrentCity { result in
+            switch result {
+            case .success(let cityName):
+                self.viewModel.getWeatherForeCastData(city: cityName)
+                self.viewModel.getCityWeatherData(city: cityName)
+            case .failure(let error):
+                print("Error getting city name: \(error)")
+            }
+        }
+
     }
     
     func updateForeCastList(arrForeCastData: [WeekWeatherInfo]) {
