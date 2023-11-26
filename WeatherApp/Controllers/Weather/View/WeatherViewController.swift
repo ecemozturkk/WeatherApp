@@ -28,6 +28,9 @@ class WeatherViewController: UIViewController {
     var weekForecast: [WeekWeatherInfo] = []
     var todayForeCast: [WeekWeatherInfo] = []
     var currentWeatherData: WeatherData?
+    let cityManager = LocationManager.shared
+    
+    var tempBool = true
     
     //MARK: - Life Cycle Method(s)
     
@@ -53,6 +56,11 @@ extension WeatherViewController {
     
     func initViewModel() {
         
+        
+        
+        
+        // Get employees data
+
         // Get data
         viewModel.reloadWeatherList = { [weak self] arrData in
             DispatchQueue.main.async {
@@ -69,8 +77,16 @@ extension WeatherViewController {
             }
         }
         
-        viewModel.getWeatherForeCastData()
-        viewModel.getCityWeatherData()
+        cityManager.getCurrentCity { result in
+            switch result {
+            case .success(let cityName):
+                self.viewModel.getWeatherForeCastData(city: cityName)
+                self.viewModel.getCityWeatherData(city: cityName)
+            case .failure(let error):
+                print("Error getting city name: \(error)")
+            }
+        }
+
     }
     
     func updateForeCastList(arrForeCastData: [WeekWeatherInfo]) {
