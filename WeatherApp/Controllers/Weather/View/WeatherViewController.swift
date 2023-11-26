@@ -13,7 +13,6 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var lblDate: UILabel?
     @IBOutlet weak var lblCity: UILabel?
-    @IBOutlet weak var lblUsername: UILabel?
     @IBOutlet weak var profileImage: UIImageView?
     @IBOutlet weak var lblWeatherDescription: UILabel?
     @IBOutlet weak var imgWeatherStatusPic: UIImageView?
@@ -54,15 +53,7 @@ extension WeatherViewController {
     
     func initViewModel() {
         
-        self.profileImage?.layer.cornerRadius = viewModel.cornerRadius
-        self.profileImage?.clipsToBounds = true
-        
-        self.lblUsername?.text = "Welcome User"
-        
-        
-        
-        
-        // Get employees data
+        // Get data
         viewModel.reloadWeatherList = { [weak self] arrData in
             DispatchQueue.main.async {
                 self?.updateForeCastList(arrForeCastData: arrData)
