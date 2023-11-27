@@ -4,7 +4,7 @@ This application is developed using the Open Weather API to display weather info
 
 ## Content
 - [Features](https://github.com/ecemozturkk/WeatherApp/tree/main#features)
-- [Getting Started](https://github.com/ecemozturkk/WeatherApp/tree/main#gettingstarted)
+- [Getting Started](https://github.com/ecemozturkk/WeatherApp/tree/main#getting-started)
 - [Dependencies](https://github.com/ecemozturkk/WeatherApp/tree/main#dependencies)
 
 ## Features
