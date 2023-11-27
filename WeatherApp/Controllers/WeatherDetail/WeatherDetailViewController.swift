@@ -15,6 +15,7 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var lblMinTemp: UILabel!
     @IBOutlet weak var lblhumidity: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
     
     var weekForecast : WeekWeatherInfo?
     var currentWeatherData: WeatherData?
@@ -59,6 +60,12 @@ class WeatherDetailViewController: UIViewController {
             self.imgWeatherStatusPic?.image = icon
         } else {
             self.imgWeatherStatusPic?.image = UIImage(named: "unknown")
+        }
+        
+        if let date = weekForecast?.dt {
+            self.lblDate.text = Utility.getDateFromTimeStamp(timeStamp: date)
+        } else {
+            self.lblDate.text = "NA"
         }
     }
     

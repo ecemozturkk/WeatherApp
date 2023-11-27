@@ -10,15 +10,15 @@ import UIKit
 class WeatherViewController: UIViewController {
     
     //MARK: - IBOutlet(s)
-    
-    @IBOutlet weak var lblDate: UILabel?
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblCity: UILabel?
-    @IBOutlet weak var lblWeatherDescription: UILabel?
+    @IBOutlet weak var lblWeatherDescription: UILabel!
     @IBOutlet weak var imgWeatherStatusPic: UIImageView?
     @IBOutlet weak var btnForecastSegment: UISegmentedControl?
     @IBOutlet weak var weatherCollectionViewList: UICollectionView?
     @IBOutlet weak var btnTempSegment: UISegmentedControl!
     @IBOutlet weak var temperature: UILabel!
+    
     //MARK: - Var(s)
     
     lazy var viewModel = {
