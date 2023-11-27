@@ -8,6 +8,18 @@
 import Foundation
 
 struct Constant {
-    static let OW_API_KEY = "555707b60a648234521b877ef252df72"
     static let mainStorybaord = "Main"
+    
+    static var OW_API_KEY: String {
+        get {
+            if let storedKey = KeychainService.getAPIKey() {
+                return storedKey
+            } else {
+                return "555707b60a648234521b877ef252df72"
+            }
+        }
+        set {
+            KeychainService.saveAPIKey(newValue)
+        }
+    }
 }

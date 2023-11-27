@@ -23,6 +23,7 @@
 		525339C02B13A9F50048A62E /* WeatherForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525339BF2B13A9F50048A62E /* WeatherForecastCell.swift */; };
 		525339C32B14019A0048A62E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525339C22B14019A0048A62E /* LocationManager.swift */; };
 		5294DC012B14142F00EE8E58 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */; };
+		5294DC032B14A68B00EE8E58 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC022B14A68B00EE8E58 /* KeychainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		525339BF2B13A9F50048A62E /* WeatherForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastCell.swift; sourceTree = "<group>"; };
 		525339C22B14019A0048A62E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
+		5294DC022B14A68B00EE8E58 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				525339B82B13A63D0048A62E /* NetworkHelper.swift */,
+				5294DC022B14A68B00EE8E58 /* KeychainService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				525339B72B13A6160048A62E /* NetworkServices.swift in Sources */,
 				525339C32B14019A0048A62E /* LocationManager.swift in Sources */,
 				525339962B1379F80048A62E /* SceneDelegate.swift in Sources */,
+				5294DC032B14A68B00EE8E58 /* KeychainService.swift in Sources */,
 				525339B52B13A5E80048A62E /* Constant.swift in Sources */,
 				525339C02B13A9F50048A62E /* WeatherForecastCell.swift in Sources */,
 			);

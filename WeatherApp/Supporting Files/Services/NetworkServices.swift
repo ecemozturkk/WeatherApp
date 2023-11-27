@@ -23,10 +23,10 @@ class NetworkService {
                     let model = try JSONDecoder().decode(WeatherResponse.self, from: data!)
                     completion(true, model.list, nil)
                 } catch {
-                    completion(false, nil, "Error: Trying to parse Employees to model")
+                    completion(false, nil, "Error: Trying to parse Weather to model")
                 }
             } else {
-                completion(false, nil, "Error: Employees GET Request failed")
+                completion(false, nil, "Error: Weather GET Request failed")
             }
         }
     }
@@ -38,10 +38,10 @@ class NetworkService {
                     let model = try JSONDecoder().decode(WeatherData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
-                    completion(false, nil, "Error: Trying to parse Employees to model")
+                    completion(false, nil, "Error: Trying to parse Weather to model")
                 }
             } else {
-                completion(false, nil, "Error: Employees GET Request failed")
+                completion(false, nil, "Error: Weather GET Request failed")
             }
         }
     }
@@ -60,5 +60,4 @@ class NetworkService {
             }
         }.resume()
     }
-    
 }
