@@ -8,13 +8,7 @@
 import Foundation
 
 class Utility {
-    
-    enum TimeFormat: String {
-        case timeOnly = "HH: mm"
-        case dateOnly = "MMM dd, YYYY"
-        case none = "EEEE, MMM dd, YYYY"
-    }
-    
+        
     static func isTimeIntervalForToday(timeInterval: TimeInterval) -> Bool {
         // Get the current date and time
         let currentDate = Date()

@@ -24,6 +24,9 @@
 		525339C32B14019A0048A62E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525339C22B14019A0048A62E /* LocationManager.swift */; };
 		5294DC012B14142F00EE8E58 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */; };
 		5294DC032B14A68B00EE8E58 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC022B14A68B00EE8E58 /* KeychainService.swift */; };
+		5294DC062B14A99D00EE8E58 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC052B14A99D00EE8E58 /* TimeFormat.swift */; };
+		5294DC082B14A9D100EE8E58 /* HTTPHeaderFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC072B14A9D100EE8E58 /* HTTPHeaderFields.swift */; };
+		5294DC0A2B14A9FA00EE8E58 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC092B14A9FA00EE8E58 /* LocationError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		525339C22B14019A0048A62E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		5294DC022B14A68B00EE8E58 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		5294DC052B14A99D00EE8E58 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
+		5294DC072B14A9D100EE8E58 /* HTTPHeaderFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderFields.swift; sourceTree = "<group>"; };
+		5294DC092B14A9FA00EE8E58 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 		525339A92B137D2A0048A62E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5294DC042B14A98800EE8E58 /* Enum */,
 				525339B42B13A5E80048A62E /* Constant.swift */,
 				525339BC2B13A9A20048A62E /* Utility.swift */,
 			);
@@ -196,6 +203,16 @@
 			path = WeatherDetail;
 			sourceTree = "<group>";
 		};
+		5294DC042B14A98800EE8E58 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				5294DC052B14A99D00EE8E58 /* TimeFormat.swift */,
+				5294DC072B14A9D100EE8E58 /* HTTPHeaderFields.swift */,
+				5294DC092B14A9FA00EE8E58 /* LocationError.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,7 +287,10 @@
 				525339BD2B13A9A20048A62E /* Utility.swift in Sources */,
 				5294DC012B14142F00EE8E58 /* WeatherDetailViewController.swift in Sources */,
 				525339B92B13A63D0048A62E /* NetworkHelper.swift in Sources */,
+				5294DC062B14A99D00EE8E58 /* TimeFormat.swift in Sources */,
+				5294DC0A2B14A9FA00EE8E58 /* LocationError.swift in Sources */,
 				525339BB2B13A8690048A62E /* ViewModel.swift in Sources */,
+				5294DC082B14A9D100EE8E58 /* HTTPHeaderFields.swift in Sources */,
 				525339B32B13A5200048A62E /* WeekWeatherData.swift in Sources */,
 				525339982B1379F80048A62E /* WeatherViewController.swift in Sources */,
 				525339942B1379F80048A62E /* AppDelegate.swift in Sources */,

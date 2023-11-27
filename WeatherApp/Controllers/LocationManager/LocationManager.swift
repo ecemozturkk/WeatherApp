@@ -57,9 +57,3 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         completion?(.failure(error))
     }
 }
-
-enum LocationError: Error {
-    case noLocationAvailable
-    case noCityAvailable
-    case noPlacemarkAvailable
-}
