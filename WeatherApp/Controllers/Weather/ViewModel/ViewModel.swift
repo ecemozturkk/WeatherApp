@@ -36,8 +36,8 @@ class WeatherViewModel {
     }
     
     //MARK: - Helper Method(s)
-    func getWeatherForeCastData() {
-        networkService.getWeatherForcastData(cityName: "Istanbul,Turkey", completion: { status, data, msg in
+    func getWeatherForeCastData(city: String) {
+        networkService.getWeatherForcastData(cityName: city, completion: { status, data, msg in
             if status, let arrData = data {
                 self.weatherForeCastData = arrData
             } else {
@@ -46,8 +46,8 @@ class WeatherViewModel {
         })
     }
     
-    func getCityWeatherData() {
-        networkService.getCityWeatherData(cityName: "Istanbul,Turkey", completion: { status, data, msg in
+    func getCityWeatherData(city: String) {
+        networkService.getCityWeatherData(cityName: city, completion: { status, data, msg in
             if status, let weatherData = data {
                 self.cityWeatherData = weatherData
             } else {
