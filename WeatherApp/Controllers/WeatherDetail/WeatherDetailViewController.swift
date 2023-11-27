@@ -36,19 +36,20 @@ class WeatherDetailViewController: UIViewController {
                 
         if let tempInKelvin = weekForecast?.main.temp_min {
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
-            let celsiusTemperature: Double = tempInCelsius
-            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
-            
-            self.lblMinTemp?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
+            let celsiusTemperature = Int(tempInCelsius)
+            let fahrenheitTemperature = Int(celsiusToFahrenheit(Double(celsiusTemperature)))
+
+            self.lblMinTemp?.text = tempBool ? "\(celsiusTemperature) °C" : "\(fahrenheitTemperature) °F"
         }
-        
+
         if let tempInKelvin = weekForecast?.main.temp_max {
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
-            let celsiusTemperature: Double = tempInCelsius
-            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
-            
-            self.lblMaxTemp?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
+            let celsiusTemperature = Int(tempInCelsius)
+            let fahrenheitTemperature = Int(celsiusToFahrenheit(Double(celsiusTemperature)))
+
+            self.lblMaxTemp?.text = tempBool ? "\(celsiusTemperature) °C" : "\(fahrenheitTemperature) °F"
         }
+
         
         if let description = self.currentWeatherData?.weather.first?.description {
             self.lblDescription?.text = description
