@@ -61,7 +61,7 @@ class WeatherViewController: UIViewController {
     
     @IBAction func onSearch(_ sender: Any) {
         // Create an alert controller
-        let alertController = UIAlertController(title: "Search", message: "Enter your city", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Search", message: "Enter a city name", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
             textField.placeholder = "City"

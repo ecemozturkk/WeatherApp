@@ -18,6 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="scattered clouds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTS-Hh-HWn">
+                                <rect key="frame" x="137.33333333333334" y="428" width="118.66666666666666" height="21"/>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02d" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-lp-Tmk">
                                 <rect key="frame" x="134" y="242.33333333333337" width="125" height="125"/>
                                 <constraints>
@@ -36,7 +42,7 @@
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fGt-VY-2ph">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="32"/>
-                                        <color key="backgroundColor" red="0.79896228859999996" green="0.94480426220000002" blue="0.97068339650000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="segmentColor"/>
                                         <segments>
                                             <segment title="Today"/>
                                             <segment title="Weekly"/>
@@ -151,7 +157,7 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hd2-9l-Cmt">
                                 <rect key="frame" x="159" y="529" width="75" height="32"/>
-                                <color key="backgroundColor" name="bgColor"/>
+                                <color key="backgroundColor" name="segmentColor"/>
                                 <segments>
                                     <segment title="° C"/>
                                     <segment title="° F"/>
@@ -166,15 +172,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="scattered clouds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTS-Hh-HWn">
-                                <rect key="frame" x="137.33333333333334" y="428" width="118.66666666666666" height="21"/>
-                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1iL-sg-Cgu"/>
-                        <color key="backgroundColor" red="0.96502766243526883" green="1" blue="0.98554648603047723" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="txl-YO-gwL" firstAttribute="top" secondItem="tnq-3k-Pkz" secondAttribute="bottom" constant="35.999999999999943" id="4GY-gF-737"/>
                             <constraint firstItem="3kI-ak-Flt" firstAttribute="top" secondItem="Hd2-9l-Cmt" secondAttribute="bottom" constant="8" symbolic="YES" id="7gF-kp-0KN"/>
@@ -463,8 +463,11 @@
     </scenes>
     <resources>
         <image name="02d" width="170.66667175292969" height="170.66667175292969"/>
-        <namedColor name="bgColor">
-            <color red="0.82352941176470584" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="backgroundColor">
+            <color red="0.96470588235294119" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="segmentColor">
+            <color red="0.63921568627450975" green="0.83137254901960789" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
