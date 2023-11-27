@@ -25,13 +25,11 @@ class WeatherDetailViewController: UIViewController {
         super.viewDidLoad()
         
         if let tempInKelvin = weekForecast?.main.temp {
-            
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
-            let celsiusTemperature: Double = tempInCelsius
-            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
-            
-            self.lblTemp?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
-            
+            let celsiusTemperature = Int(tempInCelsius)
+            let fahrenheitTemperature = Int(celsiusToFahrenheit(Double(celsiusTemperature)))
+
+            self.lblTemp?.text = tempBool ? "\(celsiusTemperature) °C" : "\(fahrenheitTemperature) °F"
             self.lblhumidity?.text = String(weekForecast?.main.humidity ?? 0)
         }
         

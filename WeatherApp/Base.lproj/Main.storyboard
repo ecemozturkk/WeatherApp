@@ -160,14 +160,14 @@
                                     <action selector="btnTempSegmentAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="djq-Bj-sRQ"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cc-ME-Mut">
-                                <rect key="frame" x="148.33333333333334" y="385.33333333333331" width="96.666666666666657" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cc-ME-Mut">
+                                <rect key="frame" x="176" y="385.33333333333331" width="41.333333333333343" height="48"/>
                                 <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="37"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTS-Hh-HWn">
-                                <rect key="frame" x="156.33333333333334" y="428" width="80.333333333333343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="scattered clouds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTS-Hh-HWn">
+                                <rect key="frame" x="137.33333333333334" y="428" width="118.66666666666666" height="21"/>
                                 <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -51,6 +51,12 @@ class WeatherViewController: UIViewController {
     @IBAction func btnTempSegmentAction(_ segment: UISegmentedControl) {
         tempBool = (segment.selectedSegmentIndex == 0)
         self.weatherCollectionViewList?.reloadData()
+        
+        if let temperatureValue = self.currentWeatherData?.main.temp {
+            let celsiusTemperature = Utility.kelvinToCelsius(kelvin: temperatureValue)
+            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
+            self.temperature?.text = tempBool ? String(format: "%.0f °C", celsiusTemperature) : String(format: "%.0f °F", fahrenheitTemperature)
+        }
     }
     
     @IBAction func onSearch(_ sender: Any) {
@@ -84,6 +90,22 @@ class WeatherViewController: UIViewController {
         self.viewModel.getWeatherForeCastData(city: cityName)
         self.viewModel.getCityWeatherData(city: cityName)
     }
+    
+    func updateTemperatureLabel() {
+        if let temperatureValue = self.currentWeatherData?.main.temp {
+            let celsiusTemperature = Utility.kelvinToCelsius(kelvin: temperatureValue)
+            
+            // Yuvarlama işlemi
+            let roundedTemperature = tempBool ? round(celsiusTemperature) : round(celsiusToFahrenheit(celsiusTemperature))
+            
+            self.temperature?.text = String(format: "%.0f °%@", roundedTemperature, tempBool ? "C" : "F")
+        }
+    }
+    
+    func convertTemperature(_ celsius: Double) -> String {
+        let roundedTemperature = round(celsius)
+        return tempBool ? String(format: "%.0f °C", roundedTemperature) : String(format: "%.0f °F", celsiusToFahrenheit(roundedTemperature))
+    }
 }
 
 //MARK: - UI update and ViewModel Initializer
@@ -107,7 +129,6 @@ extension WeatherViewController {
             }
         }
         
-        
         cityManager.getCurrentCity { result in
             switch result {
             case .success(let cityName):
@@ -117,7 +138,6 @@ extension WeatherViewController {
                 print("Error getting city name: \(error)")
             }
         }
-        
     }
     
     func updateForeCastList(arrForeCastData: [WeekWeatherInfo]) {
@@ -146,11 +166,14 @@ extension WeatherViewController {
         }
         
         if let temperature = self.currentWeatherData?.main.temp {
-            self.temperature?.text = "\(temperature)"
+            let celsiusTemperature = Utility.kelvinToCelsius(kelvin: temperature)
+            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
+            self.temperature?.text = tempBool ? String(format: "%.2f °C", celsiusTemperature) : String(format: "%.2f °F", fahrenheitTemperature)
+            
+            updateTemperatureLabel()
         } else {
             self.temperature?.text = "NA"
         }
-        
         
         if let iconName = self.currentWeatherData?.weather.first?.icon, let icon = UIImage(named: iconName) {
             self.imgWeatherStatusPic?.image = icon
@@ -182,13 +205,8 @@ extension WeatherViewController: UICollectionViewDataSource {
         }
         
         if let tempInKelvin = data.main.temp {
-            
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
-            let celsiusTemperature: Double = tempInCelsius
-            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
-            
-            cell.lblTemprature?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
-            
+            cell.lblTemprature?.text = convertTemperature(tempInCelsius)
         } else {
             cell.lblTemprature?.text = "NA"
         }
@@ -215,7 +233,7 @@ extension WeatherViewController: UICollectionViewDataSource {
     }
     
     func celsiusToFahrenheit(_ celsius: Double) -> Double {
-        return (celsius * 9/5) + 32
+        return round((celsius * 9/5) + 32)
     }
 }
 
@@ -228,8 +246,3 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: colllectionViewWidth, height: colllectionViewHeight)
     }
 }
-
-
-
-
-
