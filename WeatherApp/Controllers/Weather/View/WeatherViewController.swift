@@ -13,12 +13,12 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var lblDate: UILabel?
     @IBOutlet weak var lblCity: UILabel?
-    @IBOutlet weak var profileImage: UIImageView?
     @IBOutlet weak var lblWeatherDescription: UILabel?
     @IBOutlet weak var imgWeatherStatusPic: UIImageView?
     @IBOutlet weak var btnForecastSegment: UISegmentedControl?
     @IBOutlet weak var weatherCollectionViewList: UICollectionView?
-    
+    @IBOutlet weak var btnTempSegment: UISegmentedControl!
+
     //MARK: - Var(s)
     
     lazy var viewModel = {
@@ -29,7 +29,7 @@ class WeatherViewController: UIViewController {
     var todayForeCast: [WeekWeatherInfo] = []
     var currentWeatherData: WeatherData?
     let cityManager = LocationManager.shared
-    
+
     var tempBool = true
     
     //MARK: - Life Cycle Method(s)
@@ -44,9 +44,54 @@ class WeatherViewController: UIViewController {
     
     //MARK: - Action Method(s)
     
-    @IBAction func btnSegmentAction(_ sender: UISegmentedControl) {
+    @IBAction func btnSegmentAction(_ segment: UISegmentedControl) {
         self.weatherCollectionViewList?.reloadData()
     }
+        
+    @IBAction func btnTempSegmentAction(_ segment: UISegmentedControl) {
+        tempBool = (segment.selectedSegmentIndex == 0)
+        self.weatherCollectionViewList?.reloadData()
+    }
+    
+    @IBAction func onSearch(_ sender: Any) {
+        // Create an alert controller
+        let alertController = UIAlertController(title: "Search", message: "Enter your city", preferredStyle: .alert)
+
+        // Add a text field to the alert controller
+        alertController.addTextField { (textField) in
+            textField.placeholder = "City"
+        }
+
+        // Create the search action
+        let searchAction = UIAlertAction(title: "Search", style: .default) { [weak self] (_) in
+            if let textField = alertController.textFields?.first, let searchText = textField.text {
+                // Handle the search here, e.g., perform a search with searchText
+                
+                if(!searchText.isEmpty) {
+                    self?.performSearch(with: searchText)
+                }
+               
+            }
+        }
+
+        // Create the cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        // Add the actions to the alert controller
+        alertController.addAction(searchAction)
+        alertController.addAction(cancelAction)
+
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func performSearch(with cityName: String) {
+        
+        self.viewModel.getWeatherForeCastData(city: cityName)
+        self.viewModel.getCityWeatherData(city: cityName)
+        
+    }
+    
     
 }
 
@@ -56,12 +101,6 @@ extension WeatherViewController {
     
     func initViewModel() {
         
-        
-        
-        
-        // Get employees data
-
-        // Get data
         viewModel.reloadWeatherList = { [weak self] arrData in
             DispatchQueue.main.async {
                 self?.updateForeCastList(arrForeCastData: arrData)
@@ -77,6 +116,7 @@ extension WeatherViewController {
             }
         }
         
+        
         cityManager.getCurrentCity { result in
             switch result {
             case .success(let cityName):
@@ -86,7 +126,7 @@ extension WeatherViewController {
                 print("Error getting city name: \(error)")
             }
         }
-
+        
     }
     
     func updateForeCastList(arrForeCastData: [WeekWeatherInfo]) {
@@ -146,8 +186,13 @@ extension WeatherViewController: UICollectionViewDataSource {
         }
         
         if let tempInKelvin = data.main.temp {
+            
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
-            cell.lblTemprature?.text = String(format: "%.2f °C", tempInCelsius)
+            let celsiusTemperature: Double = tempInCelsius
+            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
+
+            cell.lblTemprature?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
+            
         } else {
             cell.lblTemprature?.text = "NA"
         }
@@ -160,7 +205,23 @@ extension WeatherViewController: UICollectionViewDataSource {
         
         return cell
     }
+    // EKLENECEK AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentListArray = self.btnForecastSegment?.selectedSegmentIndex == 0 ? self.todayForeCast : self.weekForecast
+        
+        let data = currentListArray[indexPath.row]
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier:  "WeatherDetailViewController" ) as! WeatherDetailViewController
+        vc.weekForecast = data
+        vc.currentWeatherData = currentWeatherData
+        vc.tempBool = tempBool
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
     
+    func celsiusToFahrenheit(_ celsius: Double) -> Double {
+        return (celsius * 9/5) + 32
+    }
 }
 
 //MARK: - //MARK: - UICollectionViewDataSource Method(s)

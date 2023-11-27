@@ -22,6 +22,7 @@
 		525339BD2B13A9A20048A62E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525339BC2B13A9A20048A62E /* Utility.swift */; };
 		525339C02B13A9F50048A62E /* WeatherForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525339BF2B13A9F50048A62E /* WeatherForecastCell.swift */; };
 		525339C32B14019A0048A62E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525339C22B14019A0048A62E /* LocationManager.swift */; };
+		5294DC012B14142F00EE8E58 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		525339BC2B13A9A20048A62E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		525339BF2B13A9F50048A62E /* WeatherForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastCell.swift; sourceTree = "<group>"; };
 		525339C22B14019A0048A62E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		525339A82B137D1A0048A62E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5294DBFF2B1413FB00EE8E58 /* WeatherDetail */,
 				525339C12B14018A0048A62E /* LocationManager */,
 				525339AC2B137D570048A62E /* Weather */,
 			);
@@ -182,6 +185,14 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
+		5294DBFF2B1413FB00EE8E58 /* WeatherDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5294DC002B14142F00EE8E58 /* WeatherDetailViewController.swift */,
+			);
+			path = WeatherDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				525339BD2B13A9A20048A62E /* Utility.swift in Sources */,
+				5294DC012B14142F00EE8E58 /* WeatherDetailViewController.swift in Sources */,
 				525339B92B13A63D0048A62E /* NetworkHelper.swift in Sources */,
 				525339BB2B13A8690048A62E /* ViewModel.swift in Sources */,
 				525339B32B13A5200048A62E /* WeekWeatherData.swift in Sources */,
