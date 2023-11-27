@@ -507,13 +507,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather Detail" id="3ME-Sj-3aN"/>
                     <connections>
-                        <outlet property="imgWeatherStatusPic" destination="W8o-oF-QVi" id="U9s-8O-C7B"/>
                         <outlet property="lblDate" destination="eKX-DZ-KnY" id="LTn-ht-Tao"/>
                         <outlet property="lblDescription" destination="DXP-L8-YnY" id="oCg-g4-sdB"/>
                         <outlet property="lblMaxTemp" destination="rFN-mK-v9n" id="Mvu-Li-071"/>
                         <outlet property="lblMinTemp" destination="hvE-Zo-9AC" id="QbY-UX-FWm"/>
                         <outlet property="lblTemp" destination="jp7-Qy-7xO" id="P6n-ZV-DL6"/>
                         <outlet property="lblhumidity" destination="UEN-b4-VAm" id="2mh-pk-SWa"/>
+                        <outlet property="weatherStatusImageView" destination="W8o-oF-QVi" id="U9s-8O-C7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGP-qB-m5F" sceneMemberID="firstResponder"/>

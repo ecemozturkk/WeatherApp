@@ -21,10 +21,12 @@ class WeatherViewController: UIViewController {
     
     //MARK: - Var(s)
     
+    // Lazy instantiation of the WeatherViewModel
     lazy var viewModel = {
         WeatherViewModel()
     }()
     
+    // Weekly and daily weather forecasts, current weather, and location manager
     var weekForecast: [WeekWeatherInfo] = []
     var todayForeCast: [WeekWeatherInfo] = []
     var currentWeatherData: WeatherData?
@@ -44,10 +46,12 @@ class WeatherViewController: UIViewController {
     
     //MARK: - Action Method(s)
     
+    // btnSegmentAction: Handles the segmented control for forecast selection
     @IBAction func btnSegmentAction(_ segment: UISegmentedControl) {
         self.weatherCollectionViewList?.reloadData()
     }
     
+    // btnTempSegmentAction: Handles the segmented control for temperature unit selection
     @IBAction func btnTempSegmentAction(_ segment: UISegmentedControl) {
         tempBool = (segment.selectedSegmentIndex == 0)
         self.weatherCollectionViewList?.reloadData()
@@ -59,6 +63,7 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    // onSearch: Displays an alert for city search
     @IBAction func onSearch(_ sender: Any) {
         // Create an alert controller
         let alertController = UIAlertController(title: "Search", message: "Enter a city name", preferredStyle: .alert)
@@ -86,22 +91,24 @@ class WeatherViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    // performSearch: Initiates a weather search for the specified city
     func performSearch(with cityName: String) {
         self.viewModel.getWeatherForeCastData(city: cityName)
         self.viewModel.getCityWeatherData(city: cityName)
     }
     
+    // updateTemperatureLabel: Updates the temperature label based on the selected unit
     func updateTemperatureLabel() {
         if let temperatureValue = self.currentWeatherData?.main.temp {
             let celsiusTemperature = Utility.kelvinToCelsius(kelvin: temperatureValue)
             
-            // Yuvarlama işlemi
             let roundedTemperature = tempBool ? round(celsiusTemperature) : round(celsiusToFahrenheit(celsiusTemperature))
             
             self.temperature?.text = String(format: "%.0f °%@", roundedTemperature, tempBool ? "C" : "F")
         }
     }
     
+    // convertTemperature: Converts temperature from Celsius to Fahrenheit if needed
     func convertTemperature(_ celsius: Double) -> String {
         let roundedTemperature = round(celsius)
         return tempBool ? String(format: "%.0f °C", roundedTemperature) : String(format: "%.0f °F", celsiusToFahrenheit(roundedTemperature))
@@ -113,13 +120,14 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController {
     
     func initViewModel() {
-        
+        // Callback to update the weather forecast list
         viewModel.reloadWeatherList = { [weak self] arrData in
             DispatchQueue.main.async {
                 self?.updateForeCastList(arrForeCastData: arrData)
             }
         }
         
+        // Callback to show the current weather data
         viewModel.showWeatherData = { [weak self] cityData in
             if let cityData = cityData {
                 self?.currentWeatherData = cityData
@@ -129,6 +137,7 @@ extension WeatherViewController {
             }
         }
         
+        // Fetches the current city using the location manager
         cityManager.getCurrentCity { result in
             switch result {
             case .success(let cityName):
@@ -140,12 +149,14 @@ extension WeatherViewController {
         }
     }
     
+    // updateForeCastList: Updates the forecast data arrays based on the retrieved data
     func updateForeCastList(arrForeCastData: [WeekWeatherInfo]) {
         self.weekForecast = arrForeCastData.filter({ Utility.isTimeIntervalForToday(timeInterval: $0.dt ?? .zero) == false })
         self.todayForeCast = arrForeCastData.filter({ Utility.isTimeIntervalForToday(timeInterval: $0.dt ?? .zero) == true  })
         self.weatherCollectionViewList?.reloadData()
     }
     
+    // showCityWeatherData: Updates the UI elements with the current weather data
     func showCityWeatherData() {
         if let timeInterval = self.currentWeatherData?.dt {
             self.lblDate?.text = Utility.getDateFromTimeStamp(timeStamp: timeInterval)

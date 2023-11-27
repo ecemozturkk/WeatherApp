@@ -9,11 +9,14 @@ import Foundation
 
 class CacheManager {
     
+    // Singleton instance of CacheManager
     public static let shared = CacheManager()
+    // UserDefaults instance for data persistence
     private let userDefaults = UserDefaults.standard
-    
+    // Private initializer for Singleton pattern
     private init() {}
     
+    // Save weekly weather forecast data for a specific city to UserDefaults
     func saveWeatherForcastData(cityName: String, data: [WeekWeatherInfo]) {
         do {
             let encodedData = try JSONEncoder().encode(data)
@@ -23,6 +26,7 @@ class CacheManager {
         }
     }
     
+    // Retrieve cached weekly weather forecast data for a specific city from UserDefaults
     func getCacheWeatherForcastData(cityName: String) -> [WeekWeatherInfo]? {
         if let encodedData = userDefaults.data(forKey: "WeatherForcast_\(cityName)") {
             do {
@@ -35,6 +39,7 @@ class CacheManager {
         return nil
     }
     
+    // Save current city weather data to UserDefaults
     func saveCityWeatherData(cityName: String, data: WeatherData) {
         do {
             let encodedData = try JSONEncoder().encode(data)
@@ -44,6 +49,7 @@ class CacheManager {
         }
     }
     
+    // Retrieve cached current city weather data from UserDefaults
     func getCacheCityWeatherData(cityName: String) -> WeatherData? {
         if let encodedData = userDefaults.data(forKey: "CityWeather_\(cityName)") {
             do {
@@ -56,3 +62,4 @@ class CacheManager {
         return nil
     }
 }
+
