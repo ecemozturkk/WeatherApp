@@ -21,7 +21,7 @@ This application is developed using the Open Weather API to display weather info
 
 - **Temperature Unit Selection:** Users have the option to switch between Celsius and Fahrenheit for temperature units.
 
--  **Offline City Weather:** The application stores the weather information for the last searched city, allowing users to access it offline.
+-  **💥 Offline City Weather:** The application stores the weather information for the last searched city, allowing users to access it offline.
 
 ## Screenshots
 
