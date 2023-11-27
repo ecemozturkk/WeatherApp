@@ -12,30 +12,32 @@ class WeatherViewModel {
     
     //MARK: - Var(s)
     
+    // Network service instance for making API requests
     let networkService = NetworkService()
     
+    // Callbacks to notify the UI when data updates
     var reloadWeatherList: (([WeekWeatherInfo]) -> Void)?
     var showWeatherData: ((WeatherData?) -> Void)?
     
+    // Data sources for weather information
     var weatherForeCastData = [WeekWeatherInfo]() {
         didSet {
+            // Trigger UI update when weekly weather forecast data is set
             self.reloadWeatherList?(weatherForeCastData)
         }
     }
     
     var cityWeatherData: WeatherData? {
         didSet {
+            // Trigger UI update when current city weather data is set
             if let weatherData = self.cityWeatherData {
                 self.showWeatherData?(weatherData)
             }
         }
     }
     
-    var cornerRadius: CGFloat {
-        return 50.0
-    }
-    
     //MARK: - Helper Method(s)
+    // Fetch weekly weather forecast data for a specific city
     func getWeatherForeCastData(city: String) {
         networkService.getWeatherForcastData(cityName: city, completion: { status, data, msg in
             if status, let arrData = data {
@@ -46,6 +48,7 @@ class WeatherViewModel {
         })
     }
     
+    // Fetch current weather data for a specific city
     func getCityWeatherData(city: String) {
         networkService.getCityWeatherData(cityName: city, completion: { status, data, msg in
             if status, let weatherData = data {
@@ -54,11 +57,5 @@ class WeatherViewModel {
                 print("Error: - \(msg ?? "NA")")
             }
         })
-    }
-    
-    func downloadImage(from url: URL, completion: @escaping (UIImage) -> ()) {
-        networkService.getDownloadUrl(from: url) { profileImage in
-            completion(profileImage)
-        }
     }
 }

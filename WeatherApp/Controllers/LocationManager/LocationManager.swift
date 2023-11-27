@@ -9,12 +9,13 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
+    // Singleton instance
     static let shared = LocationManager()
     
     private var locationManager: CLLocationManager
-    
     private var completion: ((Result<String, Error>) -> Void)?
     
+    // Private initializer for Singleton pattern
     private override init() {
         self.locationManager = CLLocationManager()
         super.init()
@@ -22,6 +23,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
     }
     
+    // Request and retrieve the current city based on the user's location.
     func getCurrentCity(completion: @escaping (Result<String, Error>) -> Void) {
         self.completion = completion
         self.locationManager.startUpdatingLocation()
@@ -29,6 +31,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     // MARK: - CLLocationManagerDelegate
     
+    // Handle location updates and reverse geocode to get the current city.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             completion?(.failure(LocationError.noLocationAvailable))
@@ -49,11 +52,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 self.completion?(.failure(LocationError.noPlacemarkAvailable))
             }
         }
-        
         self.locationManager.stopUpdatingLocation()
     }
     
+    // Handle location manager errors.
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         completion?(.failure(error))
     }
 }
+
