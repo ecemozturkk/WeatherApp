@@ -18,7 +18,7 @@ class WeatherDetailViewController: UIViewController {
     
     var weekForecast : WeekWeatherInfo?
     var currentWeatherData: WeatherData?
-
+    
     var tempBool = true
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class WeatherDetailViewController: UIViewController {
             let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
             
             self.lblTemp?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
-
+            
             self.lblhumidity?.text = String(weekForecast?.main.humidity ?? 0)
         }
         
@@ -63,10 +63,10 @@ class WeatherDetailViewController: UIViewController {
             self.imgWeatherStatusPic?.image = UIImage(named: "unknown")
         }
     }
-
+    
     func celsiusToFahrenheit(_ celsius: Double) -> Double {
         return (celsius * 9/5) + 32
     }
-
+    
 }
 

@@ -30,7 +30,7 @@ class NetworkService {
             }
         }
     }
-
+    
     func getCityWeatherData(cityName: String, completion: @escaping (Bool, WeatherData?, String?) -> ()) {
         NetworkHelper.shared.GET(url: "https://api.openweathermap.org/data/2.5/weather", params: ["q": "\(cityName)", "appid": Constant.OW_API_KEY], httpHeader: .none) { success, data in
             if success {
@@ -47,18 +47,18 @@ class NetworkService {
     }
     
     func getDownloadUrl(from url: URL, completion: @escaping (UIImage) -> ()) {
-         URLSession.shared.dataTask(with: url) { data, _, error in
-             if let error = error {
-                 print("Error downloading image: \(error)")
-                 return
-             }
-
-             if let data = data, let image = UIImage(data: data) {
-                 DispatchQueue.main.async {
-                     completion(image)
-                 }
-             }
-         }.resume()
-     }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                print("Error downloading image: \(error)")
+                return
+            }
+            
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
+        }.resume()
+    }
     
 }

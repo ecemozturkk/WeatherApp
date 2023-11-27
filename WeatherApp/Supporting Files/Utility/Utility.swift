@@ -29,8 +29,8 @@ class Utility {
         
         // Compare the date components
         return currentDateComponents.year == intervalDateComponents.year &&
-            currentDateComponents.month == intervalDateComponents.month &&
-            currentDateComponents.day == intervalDateComponents.day
+        currentDateComponents.month == intervalDateComponents.month &&
+        currentDateComponents.day == intervalDateComponents.day
     }
     
     static func getDateFromTimeStamp(timeStamp : Double, timeFormat: TimeFormat = .none) -> String {
