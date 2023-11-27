@@ -2,8 +2,10 @@
 
 This application is developed using the Open Weather API to display weather information. It utilizes the UIKit framework and follows the MVVM architecture.
 
+
 ## Content
 - [Features](https://github.com/ecemozturkk/WeatherApp/tree/main#features)
+- [Screenshots](https://github.com/ecemozturkk/WeatherApp/tree/main#screenshots)
 - [Getting Started](https://github.com/ecemozturkk/WeatherApp/tree/main#getting-started)
 - [Dependencies](https://github.com/ecemozturkk/WeatherApp/tree/main#dependencies)
 
@@ -20,6 +22,10 @@ This application is developed using the Open Weather API to display weather info
 - **Temperature Unit Selection:** Users have the option to switch between Celsius and Fahrenheit for temperature units.
 
 -  **Offline City Weather:** The application stores the weather information for the last searched city, allowing users to access it offline.
+
+## Screenshots
+
+![ss](https://github.com/ecemozturkk/WeatherApp/assets/56153715/f76bcdc5-d0d2-4f3d-b730-14126b27cbb9)
 
 ## Getting Started
 
