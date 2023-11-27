@@ -27,6 +27,7 @@
 		5294DC062B14A99D00EE8E58 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC052B14A99D00EE8E58 /* TimeFormat.swift */; };
 		5294DC082B14A9D100EE8E58 /* HTTPHeaderFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC072B14A9D100EE8E58 /* HTTPHeaderFields.swift */; };
 		5294DC0A2B14A9FA00EE8E58 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC092B14A9FA00EE8E58 /* LocationError.swift */; };
+		5294DC0D2B14C58800EE8E58 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294DC0C2B14C58800EE8E58 /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		5294DC052B14A99D00EE8E58 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		5294DC072B14A9D100EE8E58 /* HTTPHeaderFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderFields.swift; sourceTree = "<group>"; };
 		5294DC092B14A9FA00EE8E58 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
+		5294DC0C2B14C58800EE8E58 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		525339922B1379F80048A62E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				5294DC0B2B14C57D00EE8E58 /* Manager */,
 				525339A82B137D1A0048A62E /* Controllers */,
 				525339A72B137D0D0048A62E /* Supporting Files */,
 				525339932B1379F80048A62E /* AppDelegate.swift */,
@@ -213,6 +216,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		5294DC0B2B14C57D00EE8E58 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5294DC0C2B14C58800EE8E58 /* CacheManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +305,7 @@
 				525339B32B13A5200048A62E /* WeekWeatherData.swift in Sources */,
 				525339982B1379F80048A62E /* WeatherViewController.swift in Sources */,
 				525339942B1379F80048A62E /* AppDelegate.swift in Sources */,
+				5294DC0D2B14C58800EE8E58 /* CacheManager.swift in Sources */,
 				525339B12B13A4FB0048A62E /* WeatherModel.swift in Sources */,
 				525339B72B13A6160048A62E /* NetworkServices.swift in Sources */,
 				525339C32B14019A0048A62E /* LocationManager.swift in Sources */,
