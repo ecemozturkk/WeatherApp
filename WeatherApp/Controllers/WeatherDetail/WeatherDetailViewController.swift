@@ -32,7 +32,7 @@ class WeatherDetailViewController: UIViewController {
             self.lblTemp?.text = tempBool ? "\(celsiusTemperature) °C" : "\(fahrenheitTemperature) °F"
             self.lblhumidity?.text = String(weekForecast?.main.humidity ?? 0)
         }
-        
+                
         if let tempInKelvin = weekForecast?.main.temp_min {
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
             let celsiusTemperature: Double = tempInCelsius
