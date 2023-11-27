@@ -15,26 +15,25 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var lblMinTemp: UILabel!
     @IBOutlet weak var lblhumidity: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
     
     var weekForecast : WeekWeatherInfo?
     var currentWeatherData: WeatherData?
-
+    
     var tempBool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let tempInKelvin = weekForecast?.main.temp {
-            
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
-            let celsiusTemperature: Double = tempInCelsius
-            let fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature)
-            
-            self.lblTemp?.text = tempBool ? String(format: "%.2f °C", tempInCelsius) : String(format: "%.2f °F", fahrenheitTemperature)
+            let celsiusTemperature = Int(tempInCelsius)
+            let fahrenheitTemperature = Int(celsiusToFahrenheit(Double(celsiusTemperature)))
 
+            self.lblTemp?.text = tempBool ? "\(celsiusTemperature) °C" : "\(fahrenheitTemperature) °F"
             self.lblhumidity?.text = String(weekForecast?.main.humidity ?? 0)
         }
-        
+                
         if let tempInKelvin = weekForecast?.main.temp_min {
             let tempInCelsius = Utility.kelvinToCelsius(kelvin: tempInKelvin)
             let celsiusTemperature: Double = tempInCelsius
@@ -62,11 +61,17 @@ class WeatherDetailViewController: UIViewController {
         } else {
             self.imgWeatherStatusPic?.image = UIImage(named: "unknown")
         }
+        
+        if let date = weekForecast?.dt {
+            self.lblDate.text = Utility.getDateFromTimeStamp(timeStamp: date)
+        } else {
+            self.lblDate.text = "NA"
+        }
     }
-
+    
     func celsiusToFahrenheit(_ celsius: Double) -> Double {
         return (celsius * 9/5) + 32
     }
-
+    
 }
 

@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum HTTPHeaderFields {
-    case application_json
-    case application_x_www_form_urlencoded
-    case none
-}
-
 class NetworkHelper {
     
     static let shared = NetworkHelper()
@@ -43,7 +37,6 @@ class NetworkHelper {
         case .none: break
         }
 
-        
         // .ephemeral prevent JSON from caching (They'll store in Ram and nothing on Disk)
         let config = URLSessionConfiguration.ephemeral
         let session = URLSession(configuration: config)
